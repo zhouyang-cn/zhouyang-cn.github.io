@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="最近在学习kotlin的时候，其中有一章节专门讲kotlin的高阶函数和 lambda 表达式，两者配合使用可以让代码极致的简洁，今天 来了解一下lambda 表达式相关的知识。  lambda 表达式通常是在需要一个函数，但是又不想费神去命名一个函数的场合下使用，也就是指匿名函数。在很多高级语言中都是有lambda 表达式的，比如：Python、Javascript、C#、Objective-">
+<meta name="description" content="最近在学习kotlin的时候，其中有一章节专门讲kotlin的高阶函数和 lambda 表达式，两者配合使用可以让代码极致的简洁，今天 来了解一下lambda 表达式相关的知识。  在很多高级语言中都是有lambda 表达式的，比如：Python、Javascript、C#、Objective-C…… Lambda表达式在Java 8中被引入，被称为Java 8的最大特征。Lambda表达式有助">
 <meta name="keywords" content="android,android studio,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="lambda表达式">
 <meta property="og:url" content="http://yoursite.com/2017/06/10/lambda-expressions/index.html">
 <meta property="og:site_name" content="ZhouYang's Blog">
-<meta property="og:description" content="最近在学习kotlin的时候，其中有一章节专门讲kotlin的高阶函数和 lambda 表达式，两者配合使用可以让代码极致的简洁，今天 来了解一下lambda 表达式相关的知识。  lambda 表达式通常是在需要一个函数，但是又不想费神去命名一个函数的场合下使用，也就是指匿名函数。在很多高级语言中都是有lambda 表达式的，比如：Python、Javascript、C#、Objective-">
-<meta property="og:updated_time" content="2017-06-12T03:21:25.000Z">
+<meta property="og:description" content="最近在学习kotlin的时候，其中有一章节专门讲kotlin的高阶函数和 lambda 表达式，两者配合使用可以让代码极致的简洁，今天 来了解一下lambda 表达式相关的知识。  在很多高级语言中都是有lambda 表达式的，比如：Python、Javascript、C#、Objective-C…… Lambda表达式在Java 8中被引入，被称为Java 8的最大特征。Lambda表达式有助">
+<meta property="og:updated_time" content="2017-06-12T12:04:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lambda表达式">
-<meta name="twitter:description" content="最近在学习kotlin的时候，其中有一章节专门讲kotlin的高阶函数和 lambda 表达式，两者配合使用可以让代码极致的简洁，今天 来了解一下lambda 表达式相关的知识。  lambda 表达式通常是在需要一个函数，但是又不想费神去命名一个函数的场合下使用，也就是指匿名函数。在很多高级语言中都是有lambda 表达式的，比如：Python、Javascript、C#、Objective-">
+<meta name="twitter:description" content="最近在学习kotlin的时候，其中有一章节专门讲kotlin的高阶函数和 lambda 表达式，两者配合使用可以让代码极致的简洁，今天 来了解一下lambda 表达式相关的知识。  在很多高级语言中都是有lambda 表达式的，比如：Python、Javascript、C#、Objective-C…… Lambda表达式在Java 8中被引入，被称为Java 8的最大特征。Lambda表达式有助">
 
 
 
@@ -371,8 +371,71 @@
         <blockquote>
 <p>最近在学习kotlin的时候，其中有一章节专门讲<code>kotlin</code>的高阶函数和 <code>lambda</code> 表达式，两者配合使用可以让代码极致的简洁，今天 来了解一下<code>lambda</code> 表达式相关的知识。</p>
 </blockquote>
-<p><code>lambda</code> 表达式通常是在<strong>需要一个函数，但是又不想费神去命名一个函数</strong>的场合下使用，也就是指<strong>匿名函数</strong>。在很多高级语言中都是有<code>lambda</code> 表达式的，比如：<code>Python</code>、<code>Javascript</code>、<code>C#</code>、<code>Objective-C</code>……</p>
-<p>那么，java是什么时候支持<code>lambda</code> 表达式的？</p>
+<p>在很多高级语言中都是有<code>lambda</code> 表达式的，比如：Python、Javascript、C#、Objective-C……</p>
+<p><code>Lambda</code>表达式在Java 8中被引入，被称为Java 8的最大特征。Lambda表达式有助于函数式编程，并且简化了开发工作。（关于函数式编程可以看一下<a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html" target="_blank" rel="external">阮一峰的函数式编程初探</a>）。</p>
+<h3 id="lambda表达式简介"><a href="#lambda表达式简介" class="headerlink" title="lambda表达式简介"></a><code>lambda</code>表达式简介</h3><p>Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中），使用 Lambda 表达式可以使代码变的更加简洁紧凑。但是Java中的lambda无法单独出现，它需要一个<code>函数式接口</code>来盛放，lambda表达式方法体其实就是函数接口的实现。</p>
+<h4 id="函数式接口functional-interface"><a href="#函数式接口functional-interface" class="headerlink" title="函数式接口functional interface"></a>函数式接口<code>functional interface</code></h4><p>我们把只拥有一个方法的接口称为 <strong>函数式接口</strong>。（之前它们被称为 <em>SAM类型</em>，即 <em>单抽象方法类型</em>（Single Abstract Method））。</p>
+<p>例如：android中<code>android.view.View.OnClickListener</code>其实就是一个<code>函数式接口</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Interface definition for a callback to be invoked when a view is clicked.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnClickListener</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Called when a view has been clicked.</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> v The view that was clicked.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="lambda表达式实际场景"><a href="#lambda表达式实际场景" class="headerlink" title="lambda表达式实际场景"></a><code>lambda</code>表达式实际场景</h4><p>例如：在android中我给一个<code>ImageView</code>设置了一个点击事件，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mIvLogo.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                System.out.println(<span class="string">"Hello"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+<p>那么我们用<code>lambda</code>表达式的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mIvLogo.setOnClickListener(v -&gt; System.out.println(<span class="string">"Hello"</span>));</div></pre></td></tr></table></figure>
+<p>匿名类型最大的问题就在于其冗余的语法。有人戏称匿名类型导致了“高度问题”（height problem）：在 <code>OnClickListener</code>这个例子里的五行代码中仅有一行在做实际工作，但是我们不得不写5行代码。</p>
+<h4 id="lambda语法"><a href="#lambda语法" class="headerlink" title="lambda语法"></a><code>lambda</code>语法</h4><p>lambda表达式由三部分组成：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Argument List</th>
+<th style="text-align:center">Arrow Token</th>
+<th style="text-align:center">Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">(int x, int y)</td>
+<td style="text-align:center">-&gt;</td>
+<td style="text-align:center">x + y</td>
+</tr>
+</tbody>
+</table>
+<p>lambda 表达式的语法格式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(parameters) -&gt; expression 或 (parameters) -&gt;&#123; statements; &#125;</div></pre></td></tr></table></figure>
+<p>以下是lambda表达式的重要特征：</p>
+<ul>
+<li><strong>可选类型声明：</strong>无需声明参数的类型。编译器可以跟参数的值推断出参数的类型。</li>
+<li><strong>可选的参数圆括号：</strong>一个参数无需定义圆括号，但多个参数必须定义圆括号。</li>
+<li><strong>可选的大括号：</strong>如果<code>Body</code>只包含一个语句，可以不使用大括号。</li>
+<li><strong>可选的返回关键字：</strong>如果<code>Body</code>只有一个表达式返回值则编译器会自动返回值（无需写return关键字），需要花括号表示表达式返回值。</li>
+</ul>
+<h4 id="lambda语法范例"><a href="#lambda语法范例" class="headerlink" title="lambda语法范例"></a><code>lambda</code>语法范例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Java8Tester</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Java8Tester tester = <span class="keyword">new</span> Java8Tester();</div><div class="line"></div><div class="line">        <span class="comment">//含类型声明</span></div><div class="line">        MathOperation addition = (<span class="keyword">int</span> a, <span class="keyword">int</span> b) -&gt; a + b;</div><div class="line"></div><div class="line">        <span class="comment">//无类型声明</span></div><div class="line">        MathOperation subtraction = (a, b) -&gt; a - b;</div><div class="line"></div><div class="line">        <span class="comment">//带有大括号的返回语句</span></div><div class="line">        MathOperation multiplication = (<span class="keyword">int</span> a, <span class="keyword">int</span> b) -&gt; &#123; <span class="keyword">return</span> a * b; &#125;;</div><div class="line"></div><div class="line">        <span class="comment">//不带大括号和return语句</span></div><div class="line">        MathOperation division = (<span class="keyword">int</span> a, <span class="keyword">int</span> b) -&gt; a / b;</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"10 + 5 = "</span> + tester.operate(<span class="number">10</span>, <span class="number">5</span>, addition));</div><div class="line">        System.out.println(<span class="string">"10 - 5 = "</span> + tester.operate(<span class="number">10</span>, <span class="number">5</span>, subtraction));</div><div class="line">        System.out.println(<span class="string">"10 x 5 = "</span> + tester.operate(<span class="number">10</span>, <span class="number">5</span>, multiplication));</div><div class="line">        System.out.println(<span class="string">"10 / 5 = "</span> + tester.operate(<span class="number">10</span>, <span class="number">5</span>, division));</div><div class="line"></div><div class="line">        <span class="comment">//参数不带圆括号</span></div><div class="line">        GreetingService greetService1 = message -&gt;</div><div class="line">                System.out.println(<span class="string">"Hello "</span> + message);</div><div class="line"></div><div class="line">        <span class="comment">//参数带圆括号</span></div><div class="line">        GreetingService greetService2 = (message) -&gt;</div><div class="line">                System.out.println(<span class="string">"Hello "</span> + message);</div><div class="line"></div><div class="line">        greetService1.sayMessage(<span class="string">"Mahesh"</span>);</div><div class="line">        greetService2.sayMessage(<span class="string">"Suresh"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">MathOperation</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">int</span> <span class="title">operation</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">GreetingService</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">sayMessage</span><span class="params">(String message)</span></span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">operate</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, MathOperation mathOperation)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> mathOperation.operation(a, b);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="lambda表达式在android中使用"><a href="#lambda表达式在android中使用" class="headerlink" title="lambda表达式在android中使用"></a><code>lambda</code>表达式在android中使用</h3><h4 id="android-studio配置"><a href="#android-studio配置" class="headerlink" title="android studio配置"></a>android studio配置</h4><p>下面介绍一下官方和三方的支持：</p>
+<h5 id="android官方支持"><a href="#android官方支持" class="headerlink" title="android官方支持"></a>android官方支持</h5><p><strong>在Android Studio 3.0之后</strong></p>
+<p>Android Studio 3.0预览1及更高版本支持对Java 8语言进行了支持，要想使用java8的功能，请确保你的Android Plugin for Gradle版本为3.0.0-alpha1（或更高）。然后在你模块级别的 <code>build.gradle</code> 文件中添加以下内容：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">  ...</div><div class="line">  compileOptions &#123;</div><div class="line">    sourceCompatibility JavaVersion.VERSION_1_8</div><div class="line">    targetCompatibility JavaVersion.VERSION_1_8</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="在Android-Studio-3-0之前"><a href="#在Android-Studio-3-0之前" class="headerlink" title="在Android Studio 3.0之前"></a>在Android Studio 3.0之前</h5><p>要为您的项目启用 Java 8 语言功能和 Jack，请在主model的 <code>build.gradle</code> 文件中输入以下内容：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">  ...</div><div class="line">  defaultConfig &#123;</div><div class="line">    ...</div><div class="line">    jackOptions &#123;</div><div class="line">      enabled <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  compileOptions &#123;</div><div class="line">    sourceCompatibility JavaVersion.VERSION_1_8</div><div class="line">    targetCompatibility JavaVersion.VERSION_1_8</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li>Jack 仅在 Android Studio 2.1 和更高版本上才受支持。</li>
+<li>使用Jack的话将会导致<a href="https://developer.android.google.cn/studio/run/index.html#instant-run" target="_blank" rel="external">Instant Run</a>不可用</li>
+</ul>
+<h5 id="三方支持库"><a href="#三方支持库" class="headerlink" title="三方支持库"></a>三方支持库</h5><p><a href="https://github.com/evant/gradle-retrolambda" target="_blank" rel="external">retrolambda插件</a></p>
+<p>下面介绍一下如何使用:</p>
+<p><strong>step1</strong> 在project级别的 <code>build.gradle</code>文件中添加如下代码：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">   repositories &#123;</div><div class="line">     <span class="comment">// Required because retrolambda is on maven central</span></div><div class="line">      mavenCentral()</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   dependencies &#123;</div><div class="line">      classpath <span class="string">'me.tatarka:gradle-retrolambda:3.6.1'</span></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>step2</strong> 在主model的 <code>build.gradle</code>文件中添加如下代码：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">apply <span class="string">plugin:</span> <span class="string">'me.tatarka.retrolambda'</span></div><div class="line">android &#123;</div><div class="line">  ...</div><div class="line">  compileOptions &#123;</div><div class="line">    sourceCompatibility JavaVersion.VERSION_1_8</div><div class="line">    targetCompatibility JavaVersion.VERSION_1_8</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="在android中的使用场景"><a href="#在android中的使用场景" class="headerlink" title="在android中的使用场景"></a>在android中的使用场景</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Handler().postDelayed(() -&gt; &#123;</div><div class="line">    Toast.makeText(<span class="keyword">this</span>, <span class="string">"2s后执行"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">&#125;, <span class="number">2000</span>);</div><div class="line">mIvLogo.setOnLongClickListener(v -&gt; &#123;</div><div class="line">    System.out.println(<span class="string">"onLongClick"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;);</div><div class="line">mIvLogo.setOnTouchListener((v, event) -&gt; &#123;</div><div class="line">    <span class="keyword">if</span>(event.getAction() == MotionEvent.ACTION_DOWN)&#123;</div><div class="line">        System.out.println(<span class="string">"ACTION_DOWN"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>注意：必须是函数式接口才可以使用lambda表达式。</p>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><p>oracle官网文档 <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html#" target="_blank" rel="external">Lambda Quick Start</a></p>
+<p>oracle官网文档 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach3" target="_blank" rel="external">Lambda Expressions</a></p>
+<p>android官方文档 <a href="https://developer.android.google.cn/guide/platform/j8-jack.html" target="_blank" rel="external">使用 Java 8 语言功能</a></p>
+<p>android studio 3.0预览版功能介绍 <a href="https://developer.android.google.cn/studio/preview/features/java8-support.html" target="_blank" rel="external">Use Java 8 language features</a></p>
+<blockquote>
+<p>原文地址：<a href="https://zhouyang-cn.github.io/2017/06/10/lambda-expressions/" target="_blank" rel="external">https://zhouyang-cn.github.io/2017/06/10/lambda-expressions/</a></p>
+<p>未经允许，禁止转载。</p>
+</blockquote>
 
       
     </div>
@@ -476,8 +539,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -541,6 +613,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda表达式简介"><span class="nav-number">1.</span> <span class="nav-text">lambda表达式简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数式接口functional-interface"><span class="nav-number">1.1.</span> <span class="nav-text">函数式接口functional interface</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lambda表达式实际场景"><span class="nav-number">1.2.</span> <span class="nav-text">lambda表达式实际场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lambda语法"><span class="nav-number">1.3.</span> <span class="nav-text">lambda语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lambda语法范例"><span class="nav-number">1.4.</span> <span class="nav-text">lambda语法范例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda表达式在android中使用"><span class="nav-number">2.</span> <span class="nav-text">lambda表达式在android中使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#android-studio配置"><span class="nav-number">2.1.</span> <span class="nav-text">android studio配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#android官方支持"><span class="nav-number">2.1.1.</span> <span class="nav-text">android官方支持</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在Android-Studio-3-0之前"><span class="nav-number">2.1.2.</span> <span class="nav-text">在Android Studio 3.0之前</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三方支持库"><span class="nav-number">2.1.3.</span> <span class="nav-text">三方支持库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在android中的使用场景"><span class="nav-number">2.2.</span> <span class="nav-text">在android中的使用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文档"><span class="nav-number">3.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
