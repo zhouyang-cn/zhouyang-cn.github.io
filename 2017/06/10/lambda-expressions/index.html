@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/10/lambda-expressions/index.html">
 <meta property="og:site_name" content="ZhouYang's Blog">
 <meta property="og:description" content="最近在学习kotlin的时候，其中有一章节专门讲kotlin的高阶函数和 lambda 表达式，两者配合使用可以让代码极致的简洁，今天 来了解一下lambda 表达式相关的知识。  在很多高级语言中都是有lambda 表达式的，比如：Python、Javascript、C#、Objective-C…… Lambda表达式在Java 8中被引入，被称为Java 8的最大特征。Lambda表达式有助">
-<meta property="og:updated_time" content="2017-06-12T12:04:28.000Z">
+<meta property="og:updated_time" content="2017-06-12T12:06:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lambda表达式">
 <meta name="twitter:description" content="最近在学习kotlin的时候，其中有一章节专门讲kotlin的高阶函数和 lambda 表达式，两者配合使用可以让代码极致的简洁，今天 来了解一下lambda 表达式相关的知识。  在很多高级语言中都是有lambda 表达式的，比如：Python、Javascript、C#、Objective-C…… Lambda表达式在Java 8中被引入，被称为Java 8的最大特征。Lambda表达式有助">
@@ -372,7 +372,7 @@
 <p>最近在学习kotlin的时候，其中有一章节专门讲<code>kotlin</code>的高阶函数和 <code>lambda</code> 表达式，两者配合使用可以让代码极致的简洁，今天 来了解一下<code>lambda</code> 表达式相关的知识。</p>
 </blockquote>
 <p>在很多高级语言中都是有<code>lambda</code> 表达式的，比如：Python、Javascript、C#、Objective-C……</p>
-<p><code>Lambda</code>表达式在Java 8中被引入，被称为Java 8的最大特征。Lambda表达式有助于函数式编程，并且简化了开发工作。（关于函数式编程可以看一下<a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html" target="_blank" rel="external">阮一峰的函数式编程初探</a>）。</p>
+<p><code>Lambda</code>表达式在Java 8中被引入，被称为Java 8的最大特征。Lambda表达式有助于函数式编程，并且简化了开发工作。（关于函数式编程可以看一下<a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html" target="_blank" rel="external">阮一峰的函数式编程初探</a>）。<a id="more"></a></p>
 <h3 id="lambda表达式简介"><a href="#lambda表达式简介" class="headerlink" title="lambda表达式简介"></a><code>lambda</code>表达式简介</h3><p>Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中），使用 Lambda 表达式可以使代码变的更加简洁紧凑。但是Java中的lambda无法单独出现，它需要一个<code>函数式接口</code>来盛放，lambda表达式方法体其实就是函数接口的实现。</p>
 <h4 id="函数式接口functional-interface"><a href="#函数式接口functional-interface" class="headerlink" title="函数式接口functional interface"></a>函数式接口<code>functional interface</code></h4><p>我们把只拥有一个方法的接口称为 <strong>函数式接口</strong>。（之前它们被称为 <em>SAM类型</em>，即 <em>单抽象方法类型</em>（Single Abstract Method））。</p>
 <p>例如：android中<code>android.view.View.OnClickListener</code>其实就是一个<code>函数式接口</code>。</p>
