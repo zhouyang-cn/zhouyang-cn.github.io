@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/18/retrofit-初学乍练-二/index.html">
 <meta property="og:site_name" content="ZhouYang's Blog">
 <meta property="og:description" content="上一篇文章，用retrofit请求github的api写了一个简单的demo，本文将继续学习retrofit的基本用法。">
-<meta property="og:updated_time" content="2017-08-02T14:50:35.000Z">
+<meta property="og:updated_time" content="2017-08-02T14:57:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="retrofit-初学乍练(二)">
 <meta name="twitter:description" content="上一篇文章，用retrofit请求github的api写了一个简单的demo，本文将继续学习retrofit的基本用法。">
@@ -401,7 +401,7 @@
 <p>这里的<code>{user}</code>在retrofit里代表这个值是动态的，当发起请求时会被替换。如果URL里包含路径参数，则需要给方法添加一个参数<code>@Path()</code>，其中@Path值与URL中的占位符匹配（在上面的例子中的<code>{user}</code>是和参数中的<code>@Path(&quot;user&quot;)</code>相匹配的）。如果有必要的话，你也可以使用多个占位符，但是你必须确保方法中要添加与之相对应的<code>@Path()</code>参数。</p>
 <h4 id="查询参数"><a href="#查询参数" class="headerlink" title="查询参数"></a>查询参数</h4><p>除了路径参数外，查询参数就是我们较常用的了。先看代码示例：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@GET</span>(<span class="string">"/user/issues"</span>)</div><div class="line">Call&lt;List&lt;Issue&gt;&gt; getIssues(</div><div class="line">  <span class="meta">@Query</span>(<span class="string">"labels"</span>) String labels,</div><div class="line">  <span class="meta">@Query</span>(<span class="string">"sort"</span>) String sort</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>例如我们经常见到的接口<code>https://developer.github.com/v3/user/issues?sort=create&amp;labels=bugs</code>，和路径参数不同，查询参数是为了进一步描述要查询的资源的。你可以通过添加<code>@Query</code>和查询参数名到方法参数中去来描述你的查询参数，Retrofit将自动将其附加到请求中去。加入你给查询参数传递了一个<code>null</code>值，Retrofit会忽略这个参数。</p>
+<p>例如我们经常见到如下的接口<code>https://developer.github.com/v3/user/issues?sort=create&amp;labels=bugs</code>，和路径参数是不同的，查询参数是为了进一步描述要查询的资源的。你可以通过添加<code>@Query</code>和查询参数名到方法参数中去来描述你的查询参数，Retrofit将自动将其附加到请求中去。如果你给查询参数传递了一个<code>null</code>值，Retrofit会忽略这个参数。</p>
 
       
     </div>
