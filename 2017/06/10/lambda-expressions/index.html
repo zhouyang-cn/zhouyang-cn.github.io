@@ -95,8 +95,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="lambda表达式">
 <meta property="og:url" content="http://yoursite.com/2017/06/10/lambda-expressions/index.html">
-<meta property="og:site_name" content="ZhouYang's Blog">
+<meta property="og:site_name" content="ZhouYang&#39;s Blog">
 <meta property="og:description" content="最近在学习kotlin的时候，其中有一章节专门讲kotlin的高阶函数和 lambda 表达式，两者配合使用可以让代码极致的简洁，今天 来了解一下lambda 表达式相关的知识。  在很多高级语言中都是有lambda 表达式的，比如：Python、Javascript、C#、Objective-C…… Lambda表达式在Java 8中被引入，被称为Java 8的最大特征。Lambda表达式有助">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-06-27T08:11:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lambda表达式">
@@ -373,7 +374,7 @@
 <p>最近在学习kotlin的时候，其中有一章节专门讲<code>kotlin</code>的高阶函数和 <code>lambda</code> 表达式，两者配合使用可以让代码极致的简洁，今天 来了解一下<code>lambda</code> 表达式相关的知识。</p>
 </blockquote>
 <p>在很多高级语言中都是有<code>lambda</code> 表达式的，比如：Python、Javascript、C#、Objective-C……</p>
-<p><code>Lambda</code>表达式在Java 8中被引入，被称为Java 8的最大特征。Lambda表达式有助于函数式编程，并且简化了开发工作。（关于函数式编程可以看一下<a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html" target="_blank" rel="external">阮一峰的函数式编程初探</a>）。<a id="more"></a></p>
+<p><code>Lambda</code>表达式在Java 8中被引入，被称为Java 8的最大特征。Lambda表达式有助于函数式编程，并且简化了开发工作。（关于函数式编程可以看一下<a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html" target="_blank" rel="noopener">阮一峰的函数式编程初探</a>）。<a id="more"></a></p>
 <h3 id="lambda表达式简介"><a href="#lambda表达式简介" class="headerlink" title="lambda表达式简介"></a><code>lambda</code>表达式简介</h3><p>Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中），使用 Lambda 表达式可以使代码变的更加简洁紧凑。但是Java中的lambda无法单独出现，它需要一个<code>函数式接口</code>来盛放，lambda表达式方法体其实就是函数接口的实现。</p>
 <h4 id="函数式接口functional-interface"><a href="#函数式接口functional-interface" class="headerlink" title="函数式接口functional interface"></a>函数式接口<code>functional interface</code></h4><p>我们把只拥有一个方法的接口称为 <strong>函数式接口</strong>。（之前它们被称为 <em>SAM类型</em>，即 <em>单抽象方法类型</em>（Single Abstract Method））。</p>
 <p>例如：android中<code>android.view.View.OnClickListener</code>其实就是一个<code>函数式接口</code>。</p>
@@ -419,9 +420,9 @@
 <p>注意：</p>
 <ul>
 <li>Jack 仅在 Android Studio 2.1 和更高版本上才受支持。</li>
-<li>使用Jack的话将会导致<a href="https://developer.android.google.cn/studio/run/index.html#instant-run" target="_blank" rel="external">Instant Run</a>不可用</li>
+<li>使用Jack的话将会导致<a href="https://developer.android.google.cn/studio/run/index.html#instant-run" target="_blank" rel="noopener">Instant Run</a>不可用</li>
 </ul>
-<h5 id="三方支持库"><a href="#三方支持库" class="headerlink" title="三方支持库"></a>三方支持库</h5><p><a href="https://github.com/evant/gradle-retrolambda" target="_blank" rel="external">retrolambda插件</a></p>
+<h5 id="三方支持库"><a href="#三方支持库" class="headerlink" title="三方支持库"></a>三方支持库</h5><p><a href="https://github.com/evant/gradle-retrolambda" target="_blank" rel="noopener">retrolambda插件</a></p>
 <p>下面介绍一下如何使用:</p>
 <p><strong>step1</strong> 在project级别的 <code>build.gradle</code>文件中添加如下代码：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">   repositories &#123;</div><div class="line">     <span class="comment">// Required because retrolambda is on maven central</span></div><div class="line">      mavenCentral()</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   dependencies &#123;</div><div class="line">      classpath <span class="string">'me.tatarka:gradle-retrolambda:3.6.1'</span></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -430,12 +431,12 @@
 <h4 id="在android中的使用场景"><a href="#在android中的使用场景" class="headerlink" title="在android中的使用场景"></a>在android中的使用场景</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Handler().postDelayed(() -&gt; &#123;</div><div class="line">    Toast.makeText(<span class="keyword">this</span>, <span class="string">"2s后执行"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">&#125;, <span class="number">2000</span>);</div><div class="line">mIvLogo.setOnLongClickListener(v -&gt; &#123;</div><div class="line">    System.out.println(<span class="string">"onLongClick"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;);</div><div class="line">mIvLogo.setOnTouchListener((v, event) -&gt; &#123;</div><div class="line">    <span class="keyword">if</span>(event.getAction() == MotionEvent.ACTION_DOWN)&#123;</div><div class="line">        System.out.println(<span class="string">"ACTION_DOWN"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>注意：必须是函数式接口才可以使用lambda表达式。</p>
 <p>android的场景其实很多的，在以后的使用过程中，我会把比较典型的陆续补充上来。</p>
-<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><p>oracle官网文档 <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html#" target="_blank" rel="external">Lambda Quick Start</a></p>
-<p>oracle官网文档 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach3" target="_blank" rel="external">Lambda Expressions</a></p>
-<p>android官方文档 <a href="https://developer.android.google.cn/guide/platform/j8-jack.html" target="_blank" rel="external">使用 Java 8 语言功能</a></p>
-<p>android studio 3.0预览版功能介绍 <a href="https://developer.android.google.cn/studio/preview/features/java8-support.html" target="_blank" rel="external">Use Java 8 language features</a></p>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><p>oracle官网文档 <a href="http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html#" target="_blank" rel="noopener">Lambda Quick Start</a></p>
+<p>oracle官网文档 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach3" target="_blank" rel="noopener">Lambda Expressions</a></p>
+<p>android官方文档 <a href="https://developer.android.google.cn/guide/platform/j8-jack.html" target="_blank" rel="noopener">使用 Java 8 语言功能</a></p>
+<p>android studio 3.0预览版功能介绍 <a href="https://developer.android.google.cn/studio/preview/features/java8-support.html" target="_blank" rel="noopener">Use Java 8 language features</a></p>
 <blockquote>
-<p>原文地址：<a href="https://zhouyang-cn.github.io/2017/06/10/lambda-expressions/" target="_blank" rel="external">https://zhouyang-cn.github.io/2017/06/10/lambda-expressions/</a></p>
+<p>原文地址：<a href="https://zhouyang-cn.github.io/2017/06/10/lambda-expressions/" target="_blank" rel="noopener">https://zhouyang-cn.github.io/2017/06/10/lambda-expressions/</a></p>
 <p><strong>转载请注明原文地址，谢谢！。</strong></p>
 </blockquote>
 
@@ -484,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/29/retrofit-初学乍练/" rel="next" title="retrofit-初学乍练">
-                <i class="fa fa-chevron-left"></i> retrofit-初学乍练
+              <a href="/2017/05/31/kotlin-basic-syntax2/" rel="next" title="Kotlin-入门(二)">
+                <i class="fa fa-chevron-left"></i> Kotlin-入门(二)
               </a>
             
           </div>
@@ -494,8 +495,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/31/kotlin-basic-syntax2/" rel="prev" title="Kotlin-入门(二)">
-                Kotlin-入门(二) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/29/retrofit-初学乍练/" rel="prev" title="retrofit-初学乍练">
+                retrofit-初学乍练 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -575,7 +576,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="https://zhouyang-cn.github.io/archives/">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -656,8 +657,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

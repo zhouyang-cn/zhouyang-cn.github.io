@@ -92,12 +92,13 @@
 
 <meta name="description" content="莫等闲，白了少年头，空悲切。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ZhouYang's Blog">
+<meta property="og:title" content="ZhouYang&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
-<meta property="og:site_name" content="ZhouYang's Blog">
+<meta property="og:site_name" content="ZhouYang&#39;s Blog">
 <meta property="og:description" content="莫等闲，白了少年头，空悲切。">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZhouYang's Blog">
+<meta name="twitter:title" content="ZhouYang&#39;s Blog">
 <meta name="twitter:description" content="莫等闲，白了少年头，空悲切。">
 
 
@@ -283,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/Android Plugin for Gradle/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/20/kotlin-basic-syntax1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -302,7 +303,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/02/Android Plugin for Gradle/" itemprop="url">Android的Gradle及Plugin版本对应关系</a></h1>
+                <a class="post-title-link" href="/2017/05/20/kotlin-basic-syntax1/" itemprop="url">Kotlin-入门</a></h1>
         
 
         <div class="post-meta">
@@ -314,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T22:01:54+08:00">
-                2017-05-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-20T12:55:45+08:00">
+                2017-05-20
               </time>
             
 
@@ -333,9 +334,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/02/Android Plugin for Gradle/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/20/kotlin-basic-syntax1/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/02/Android Plugin for Gradle/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/20/kotlin-basic-syntax1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -343,7 +344,7 @@
 
           
           
-             <span id="/2017/05/02/Android Plugin for Gradle/" class="leancloud_visitors" data-flag-title="Android的Gradle及Plugin版本对应关系">
+             <span id="/2017/05/20/kotlin-basic-syntax1/" class="leancloud_visitors" data-flag-title="Kotlin-入门">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -372,14 +373,13 @@
 
       
         
-          <h3 id="生命不息-折腾不止"><a href="#生命不息-折腾不止" class="headerlink" title="生命不息,折腾不止"></a>生命不息,折腾不止</h3><p>​    从2014年12月Android Studio(<em>后面简写为AS</em>)发布v1.0版本开始，我就开始用上了，每次有新版本就踩着雷更新上去了，遇到了很多问题，有的是AS自己的bug、有的是国内网络的问题。</p>
-<p>​    今天来分享一个让很多同行都很蛋疼的问题：</p>
-<blockquote>
-<p><strong>Gradle的Android插件version和Gradle的verion对应关系问题。</strong></p>
-</blockquote>
+          <p>2017-05-17的Google I/O大会上，Android团队宣布将Kotlin作为Android开发的官方编程语言，作为一名android开发当然要跟的上潮流，今天就来了解一下Kotlin。</p>
+<h1 id="Kotlin介绍"><a href="#Kotlin介绍" class="headerlink" title="Kotlin介绍"></a>Kotlin介绍</h1><p>Kotlin是一门用于现代多平台应用的静态编程语言，由<a href="https://www.jetbrains.com/" target="_blank" rel="noopener">JetBrains</a>公司设计开发并<a href="https://github.com/jetbrains/kotlin" target="_blank" rel="noopener">开源</a>。也许有人不知道JetBrains，但是Android Studio、Intellij IDEA、WebStorm或者PyCharm总知道其中的一个吧，是的这些都是JetBrains的杰作。</p>
+<p><strong>既然说了多平台应用的编程语言，那我们就看看支持哪些平台吧：</strong></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1ffsykw76jqj31kw134jvo.jpg" alt="">
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/05/02/Android Plugin for Gradle/#more" rel="contents">
+            <a class="btn" href="/2017/05/20/kotlin-basic-syntax1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -425,7 +425,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/Git的多SSH Key解决方案(macOS)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/Android-Plugin-for-Gradle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -444,7 +444,149 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/28/Git的多SSH Key解决方案(macOS)/" itemprop="url">Git的多SSH Key解决方案(macOS)</a></h1>
+                <a class="post-title-link" href="/2017/05/02/Android-Plugin-for-Gradle/" itemprop="url">Android的Gradle及Plugin版本对应关系</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T22:01:54+08:00">
+                2017-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/02/Android-Plugin-for-Gradle/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/02/Android-Plugin-for-Gradle/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/05/02/Android-Plugin-for-Gradle/" class="leancloud_visitors" data-flag-title="Android的Gradle及Plugin版本对应关系">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="生命不息-折腾不止"><a href="#生命不息-折腾不止" class="headerlink" title="生命不息,折腾不止"></a>生命不息,折腾不止</h3><p>​    从2014年12月Android Studio(<em>后面简写为AS</em>)发布v1.0版本开始，我就开始用上了，每次有新版本就踩着雷更新上去了，遇到了很多问题，有的是AS自己的bug、有的是国内网络的问题。</p>
+<p>​    今天来分享一个让很多同行都很蛋疼的问题：</p>
+<blockquote>
+<p><strong>Gradle的Android插件version和Gradle的verion对应关系问题。</strong></p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/02/Android-Plugin-for-Gradle/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/Git的多SSH-Key解决方案-macOS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhouYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZhouYang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/04/28/Git的多SSH-Key解决方案-macOS/" itemprop="url">Git的多SSH Key解决方案(macOS)</a></h1>
         
 
         <div class="post-meta">
@@ -475,9 +617,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/28/Git的多SSH Key解决方案(macOS)/#comments" itemprop="discussionUrl">
+                <a href="/2017/04/28/Git的多SSH-Key解决方案-macOS/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/28/Git的多SSH Key解决方案(macOS)/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/04/28/Git的多SSH-Key解决方案-macOS/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -485,7 +627,7 @@
 
           
           
-             <span id="/2017/04/28/Git的多SSH Key解决方案(macOS)/" class="leancloud_visitors" data-flag-title="Git的多SSH Key解决方案(macOS)">
+             <span id="/2017/04/28/Git的多SSH-Key解决方案-macOS/" class="leancloud_visitors" data-flag-title="Git的多SSH Key解决方案(macOS)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -517,7 +659,7 @@
           <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>公司最近将代码由svn迁移到了gitlab来托管，我个人平时也经常使用Github，可是公司邮箱与我的Github使用的邮箱是不同的，SSH Key是由邮箱来生成的，这样子就造成了冲突，本文记录了解决此类问题的方案。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/28/Git的多SSH Key解决方案(macOS)/#more" rel="contents">
+            <a class="btn" href="/2017/04/28/Git的多SSH-Key解决方案-macOS/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -655,8 +797,8 @@
           
             <p>ConstraintLayout官方文档</p>
 <hr>
-<p><a href="https://developer.android.com/training/constraint-layout/index.html" target="_blank" rel="external">https://developer.android.com/training/constraint-layout/index.html</a></p>
-<p><a href="https://developer.android.com/reference/android/support/constraint/ConstraintLayout.html" target="_blank" rel="external">https://developer.android.com/reference/android/support/constraint/ConstraintLayout.html</a></p>
+<p><a href="https://developer.android.com/training/constraint-layout/index.html" target="_blank" rel="noopener">https://developer.android.com/training/constraint-layout/index.html</a></p>
+<p><a href="https://developer.android.com/reference/android/support/constraint/ConstraintLayout.html" target="_blank" rel="noopener">https://developer.android.com/reference/android/support/constraint/ConstraintLayout.html</a></p>
 
           
         
@@ -700,7 +842,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/24/Android Studio 代理(winOS)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/24/Android-Studio-代理-winOS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -719,7 +861,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/24/Android Studio 代理(winOS)/" itemprop="url">Android Studio 代理(winOS)</a></h1>
+                <a class="post-title-link" href="/2017/04/24/Android-Studio-代理-winOS/" itemprop="url">Android Studio 代理(winOS)</a></h1>
         
 
         <div class="post-meta">
@@ -750,9 +892,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/24/Android Studio 代理(winOS)/#comments" itemprop="discussionUrl">
+                <a href="/2017/04/24/Android-Studio-代理-winOS/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/24/Android Studio 代理(winOS)/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/04/24/Android-Studio-代理-winOS/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -760,7 +902,7 @@
 
           
           
-             <span id="/2017/04/24/Android Studio 代理(winOS)/" class="leancloud_visitors" data-flag-title="Android Studio 代理(winOS)">
+             <span id="/2017/04/24/Android-Studio-代理-winOS/" class="leancloud_visitors" data-flag-title="Android Studio 代理(winOS)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -790,149 +932,11 @@
       
         
           <hr>
-<h4 id="为什么要用代理"><a href="#为什么要用代理" class="headerlink" title="为什么要用代理"></a>为什么要用代理</h4><p>如今android studio越来越流行，很多的android程序猿都开始转入anroid studio的大本营。但是<a href="http://baike.baidu.com/view/987882.htm">GFW</a>的封锁成为很多人的困扰，eg：无法更新sdk，无法使用如下方式添加类库：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.android.support:support-v4:23.0.0'</span></div><div class="line">compile <span class="string">'com.android.support:appcompat-v7:23.0.0'</span></div><div class="line">compile <span class="string">'com.android.support:design:23.0.0'</span></div></pre></td></tr></table></figure></p>
-<p>翻墙软件有很多，我使用的是<a href="https://portal.shadowsocks.com.hk/aff.php?aff=2301">shadowsocks</a>,选择Shadowsocks.com 普通版 ￥99.00CNY 年付。对于搞android开发的，我觉得这个很有必要而且价格也不是很贵。
+<h4 id="为什么要用代理"><a href="#为什么要用代理" class="headerlink" title="为什么要用代理"></a>为什么要用代理</h4><p>如今android studio越来越流行，很多的android程序猿都开始转入anroid studio的大本营。但是<a href="http://baike.baidu.com/view/987882.htm" target="_blank" rel="noopener">GFW</a>的封锁成为很多人的困扰，eg：无法更新sdk，无法使用如下方式添加类库：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.android.support:support-v4:23.0.0'</span></div><div class="line">compile <span class="string">'com.android.support:appcompat-v7:23.0.0'</span></div><div class="line">compile <span class="string">'com.android.support:design:23.0.0'</span></div></pre></td></tr></table></figure></p>
+<p>翻墙软件有很多，我使用的是<a href="https://portal.shadowsocks.com.hk/aff.php?aff=2301" target="_blank" rel="noopener">shadowsocks</a>,选择Shadowsocks.com 普通版 ￥99.00CNY 年付。对于搞android开发的，我觉得这个很有必要而且价格也不是很贵。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/24/Android Studio 代理(winOS)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/24/工具篇-Chrome浏览器快捷键/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZhouYang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZhouYang's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/24/工具篇-Chrome浏览器快捷键/" itemprop="url">工具篇---Chrome浏览器快捷键</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-24T22:02:24+08:00">
-                2017-04-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/24/工具篇-Chrome浏览器快捷键/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/24/工具篇-Chrome浏览器快捷键/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/04/24/工具篇-Chrome浏览器快捷键/" class="leancloud_visitors" data-flag-title="工具篇---Chrome浏览器快捷键">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>  了解各种键盘快捷键，成为 Chrome 使用达人。本文是摘录google chrome官方文档的内容，能翻墙的朋友可以自己去查看<a href="https://support.google.com/chrome/answer/157179?hl=zh-Hans">文档</a>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/24/工具篇-Chrome浏览器快捷键/#more" rel="contents">
+            <a class="btn" href="/2017/04/24/Android-Studio-代理-winOS/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1018,7 +1022,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="https://zhouyang-cn.github.io/archives/">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1083,8 +1087,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -95,8 +95,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="retrofit-初学乍练">
 <meta property="og:url" content="http://yoursite.com/2017/06/29/retrofit-初学乍练/index.html">
-<meta property="og:site_name" content="ZhouYang's Blog">
+<meta property="og:site_name" content="ZhouYang&#39;s Blog">
 <meta property="og:description" content="本文是一篇retrofit的入门文章，将会学习一下retrofit的配置及基础用法。 retrofit概述先引用一下官方网站的介绍  A type-safe HTTP client for Android and Java. 适用于Android和Java的类型安全的HTTP客户端  retrofit官网：http://square.github.io/retrofit/ github库：http">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fh4uplm7cmj31kw0w31e6.jpg">
 <meta property="og:updated_time" content="2017-07-18T14:46:06.000Z">
 <meta name="twitter:card" content="summary">
@@ -376,8 +377,8 @@
 <blockquote>
 <p>A type-safe HTTP client for Android and Java. 适用于Android和Java的类型安全的HTTP客户端</p>
 </blockquote>
-<p>retrofit官网：<a href="http://square.github.io/retrofit/" target="_blank" rel="external">http://square.github.io/retrofit/</a></p>
-<p>github库：<a href="https://github.com/square/retrofit" target="_blank" rel="external">https://github.com/square/retrofit</a></p>
+<p>retrofit官网：<a href="http://square.github.io/retrofit/" target="_blank" rel="noopener">http://square.github.io/retrofit/</a></p>
+<p>github库：<a href="https://github.com/square/retrofit" target="_blank" rel="noopener">https://github.com/square/retrofit</a></p>
 <p>retrofit使用注解来描述http请求，默认情况下集成了URL参数替换和查询参数支持。此外，还提供自定义headers，multipart request，文件上传和下载，mock响应结果等等。</p>
 <a id="more"></a>
 <h3 id="在android项目中使用retrofit"><a href="#在android项目中使用retrofit" class="headerlink" title="在android项目中使用retrofit"></a>在android项目中使用retrofit</h3><p>官方建议我们使用的是<code>retrofit2</code>，因为<code>retrofit2</code>利用<code>OKHttp</code>作为默认网络层，不需要我们明确定义<code>OKHttp</code>作为你的项目依赖，除非你需要特定版本的<code>OKHttp</code>.</p>
@@ -385,7 +386,7 @@
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.squareup.retrofit2:retrofit:2.3.0'</span></div><div class="line">compile <span class="string">'com.squareup.retrofit2:converter-gson:2.3.0'</span></div></pre></td></tr></table></figure>
 <h4 id="网络权限声明"><a href="#网络权限声明" class="headerlink" title="网络权限声明"></a>网络权限声明</h4><p>由于我们要发起网络请求，所以要在<code>AndroidManifest.xml</code>文件中声明网络权限。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span>/&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="使用retrofit发起网络请求"><a href="#使用retrofit发起网络请求" class="headerlink" title="使用retrofit发起网络请求"></a>使用retrofit发起网络请求</h3><p>在发起请求之前，你需要描述你想要与之交互的API的路径(Endpoints)。本篇文章我们将使用<a href="https://developer.github.com/v3/" target="_blank" rel="external">GitHub的api</a>来进行网络请求。（如果不了解RESTful API 的话，可以先看一下<a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="external">阮一峰</a>老师的博客。）</p>
+<h3 id="使用retrofit发起网络请求"><a href="#使用retrofit发起网络请求" class="headerlink" title="使用retrofit发起网络请求"></a>使用retrofit发起网络请求</h3><p>在发起请求之前，你需要描述你想要与之交互的API的路径(Endpoints)。本篇文章我们将使用<a href="https://developer.github.com/v3/" target="_blank" rel="noopener">GitHub的api</a>来进行网络请求。（如果不了解RESTful API 的话，可以先看一下<a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="noopener">阮一峰</a>老师的博客。）</p>
 <h4 id="如何描述路径-Endpoints"><a href="#如何描述路径-Endpoints" class="headerlink" title="如何描述路径(Endpoints)"></a>如何描述路径(Endpoints)</h4><p>下面的代码定义一个接口<code>GitHubService</code>并且在接口里定义一个方法<code>reposForUser</code>用于获取指定用户下的代码仓库列表。使用@GET注解表明该请求使用Http的GET方式。这段代码也演示了<code>retrofit</code>路径参数替换功能的使用。当调用reposForUser方法时形参user的值将会替换路径{user}。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">GitHubService</span> </span>&#123;</div><div class="line">    <span class="meta">@GET</span>(<span class="string">"/users/&#123;user&#125;/repos"</span>)</div><div class="line">    Call&lt;List&lt;GitHubRepo&gt;&gt; reposForUser(<span class="meta">@Path</span>(<span class="string">"user"</span>) String user);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>下面定义GitHubRepo类，用于接口返回数据对应的实体类。（当然这只是该接口字段的一个摘要，该接口返回的详细内容可以参考文档或者自行请求查看）</p>
@@ -401,7 +402,7 @@
 </ol>
 <p>后续将会调研和解决上面的问题…..</p>
 <blockquote>
-<p>原文地址：<a href="https://zhouyang-cn.github.io/2017/06/29/retrofit-初学乍练/" target="_blank" rel="external">https://zhouyang-cn.github.io/2017/06/29/retrofit-初学乍练/</a></p>
+<p>原文地址：<a href="https://zhouyang-cn.github.io/2017/06/29/retrofit-初学乍练/" target="_blank" rel="noopener">https://zhouyang-cn.github.io/2017/06/29/retrofit-初学乍练/</a></p>
 <p>**转载请注明原文地址，谢谢！。</p>
 </blockquote>
 
@@ -448,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/18/retrofit-初学乍练-二/" rel="next" title="retrofit-初学乍练(二)">
-                <i class="fa fa-chevron-left"></i> retrofit-初学乍练(二)
+              <a href="/2017/06/10/lambda-expressions/" rel="next" title="lambda表达式">
+                <i class="fa fa-chevron-left"></i> lambda表达式
               </a>
             
           </div>
@@ -458,8 +459,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/10/lambda-expressions/" rel="prev" title="lambda表达式">
-                lambda表达式 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/18/retrofit-初学乍练-二/" rel="prev" title="retrofit-初学乍练(二)">
+                retrofit-初学乍练(二) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -539,7 +540,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="https://zhouyang-cn.github.io/archives/">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -620,8 +621,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
